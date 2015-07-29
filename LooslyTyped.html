@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>
+
+    </title>
+    <script>
+
+        function add(){
+            var sum = 0;
+            if(arguments){
+               for(var i = 0; i<arguments.length; i++){
+                   if(typeof arguments[i]==="function"){
+                       sum= sum + arguments[i]();
+                   }
+                   else
+                   if(arguments[i] instanceof Array){
+                       var z = arguments[i];
+                       for(var j = 0; j< z.length; j++){
+                           sum = sum + z[j];
+                       }
+
+
+                   }
+                   else{
+                   sum= sum + arguments[i];
+                   }
+                   }
+            }
+
+
+            return sum ;
+        }
+
+       /* function add(x,y){
+            //truthy and falsy
+            if(!x){
+                x = 0;
+            }
+            if(!y){
+                y = 0;
+            }
+            return x + y;
+        }*/
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

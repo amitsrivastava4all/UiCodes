@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .mystyle{
+                background-color: aqua;
+                font-weight: bold;
+                font-size: 30px;
+        }
+    </style>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      /*  $(".myclass").click(function(){
+            $(".myclass").hide(2000);
+        });
+
+        $("#p1").click(function(){
+            $(this).hide(1000);
+        });*/
+        $("p").click(function(){
+            $("p").hide(1000);
+        });
+        $("#b1").click(function(){
+            if($(this).text()=="Hide"){
+                $("p").hide(1000);
+                $(this).html("<i>Show</i>");
+            }
+            else
+            if($(this).text()=="Show"){
+                $("p").show(1000);
+                $(this).html("<b>Hide</b>");
+            }
+
+        });
+
+        $("#b2").click(function(){
+             // $(":text").val('');
+            $("input").val('');
+            $("input:first").focus();
+        });
+
+        $("h1").hover(function(){
+            $(this).toggleClass("mystyle");
+        })
+
+    });
+    </script>
+</head>
+<body>
+<h1>Hello</h1>
+<button id="b2">Clear</button>
+<input type="text" />
+<input type="password" />
+<input type="text" />
+<input type="text" />
+<button id="b1">Hide</button>
+<p id="p1">Hello</p>
+<p class="myclass">Hello</p>
+<p>Hello</p>
+<p class="myclass">Hello</p>
+<p id="p2">Hello</p>
+<p id="p3" class="myclass">Hello</p>
+</body>
+</html>
