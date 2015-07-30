@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            var ajaxObject = {
+                method: "GET",
+                url:"http://localhost:63342/UI-11/UiCodes/server/employee.json",
+                cache: false,
+                /*data: { name: "John", location: "Boston" },*/
+                dataType: "json"
+
+
+            }
+            function success(data){
+                console.log("Success Call....");
+                if(data){
+                    $.each(data,function(index,value){
+                        $("div table").append("<tr><td>"+value.id+"</td>"
+                        +"<td>"+value.name+"</td><td>"+value.salary+"</td></tr>"
+                        );
+
+
+                    });
+
+
+                }
+                else
+                {
+                    alert("No Data Found in Ajax Call");
+                }
+
+
+            }
+            function error(jqXHR, textStatus){
+                console.log("Error Call");
+            alert(jqXHR +" "+textStatus);
+            alert(jqXHR.status);
+            }
+            $("#b1").click(function(){
+                //var jqXHR = $.ajax(ajaxObject).success(success).error(error);
+                var promiseObj = $.ajax(ajaxObject);
+                promiseObj.success(success);
+                promiseObj.error(error);
+                console.log("Success Call Later");
+                console.dir(promiseObj);
+                console.log("Success Call Later");
+            });
+
+        });
+    </script>
+</head>
+<body>
+<button id="b1">Get Ajax Data</button>
+<div>
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Salary</th>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

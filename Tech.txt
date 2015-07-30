@@ -1,0 +1,10 @@
+HTML,CSS
+HTML5, CSS3
+JavaScript 
+Jquery
+Ajax , JSON
+DataTable
+JQuery UI
+WebStorm
+Zencoding
+BootStrap , Foundation
