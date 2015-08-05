@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Video Demo- Powered by .COM</title>
+  <script>
+    if(Modernizr.video){
+      alert("Congrats Video Tag Supported..");
+    }
+    else
+    {
+
+    }
+
+  </script>
+</head>
+<body>
+<!-- Note AutoPlay not use with Poster attribute -->
+<h2>Video Tag Demo</h2>
+<video id="demo"   poster="../image/BMB-Zinda.jpg" width="560" height="320" controls="controls" preload="auto" autoplay="autoplay" loop="loop" >
+<source src="../video/elephants-dream.webm" type='video/webm;codecs="vp8, vorbis"'/>
+<track src="../video/entrack.vtt" label="English subtitles" 
+         kind="subtitles" srclang="en" default></track>
+
+</video>
+<div>
+  <button onclick="document.getElementById('demo').play()">Play the Audio</button>
+  <button onclick="document.getElementById('demo').pause()">Pause the Audio</button>
+  <button onclick="document.getElementById('demo').volume+=0.1">Increase Volume</button>
+  <button onclick="document.getElementById('demo').volume-=0.1">Decrease Volume</button>
+  <button onclick="document.getElementById('demo').muted=true">Mute</button>
+  <button onclick="document.getElementById('demo').muted=false">UnMute</button>
+</div>
+</body>
+</html>

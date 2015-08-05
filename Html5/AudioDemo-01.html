@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Audio Demo - Powered by .COM</title>
+</head>
+<body>
+<h2>Audio Tag</h2>
+<audio id="myTune" autoplay="autoplay" controls="controls" loop="loop" preload="auto">
+<source src="../audio/audio.mp3" type="audio/mp3"/>
+Your browser doesn't support the HTML audio tag. Be sad
+<!--<track kind="captions" src="../video/entrack.vtt" srclang="en" label="English"/>-->
+</audio>
+<div>
+<button onclick="document.getElementById('myTune').play()">Play Music</button>
+<button onclick="document.getElementById('myTune').pause()">Pause Music</button>
+<button onclick="document.getElementById('myTune').pause(); document.getElementById('myTune').currentTime = 0;">Stop Music</button>
+</div>
+</body>
+</html>

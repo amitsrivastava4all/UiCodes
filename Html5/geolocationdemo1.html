@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>GeoLocation Demo-1 Powered by .COM</title>
+<script type="text/javascript" src="../../js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$(":button").click(function(){
+		if(navigator.geolocation){
+			$("#divId").html("GEO Location Supported");
+			navigator.geolocation.getCurrentPosition(showPosition,showError,{maximumAge:75000});
+		}
+		else
+			{
+			$("#divId").html("GEO Location Not Supported");
+			
+			}
+	
+	});
+	function showPosition(position)
+	  {
+		$("#divId2").html("Latitude: " + position.coords.latitude + 
+	  "<br>Longitude: " + position.coords.longitude+"<br> Accuracy "+position.coords.accuracy+"(In Meters)"+"<br> TimeStamp "+position.timestamp); 
+	  }
+	function showError(error)
+	  {
+		var value ="";
+	  switch(error.code) 
+	    {
+	    case error.PERMISSION_DENIED:
+	    	value="User denied the request for Geolocation."
+	      break;
+	    case error.POSITION_UNAVAILABLE:
+	    	value="Location information is unavailable."
+	      break;
+	    case error.TIMEOUT:
+	    	valueL="The request to get user location timed out."
+	      break;
+	    case error.UNKNOWN_ERROR:
+	    	value="An unknown error occurred."
+	      break;
+	    }
+	  $("#divId2").html(value);
+	  }
+});
+
+</script>
+</head>
+<body>
+<h1>Geo Location Demo</h1>
+<div id="divId"></div>
+<div id="divId2"></div>
+<input type="button" value="Check GEO Support"/>
+</body>
+</html>

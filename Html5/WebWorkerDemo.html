@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Big for loop</title>
+  <script>
+      var worker = new Worker('../../js/workers.js');
+      worker.onmessage = function (event) {
+        alert("Completed " + event.data + "iterations" );
+      };
+
+      function sayHello(){
+         alert("Hello Client...." );
+      }
+  </script>
+</head>
+<body>
+   <input type="button" onclick="sayHello();" value="Say Hello"/>
+</body>
+</html>

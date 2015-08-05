@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+<head><title>LocalStorage Demo-Powered by .COM</title></head>
+<body>
+
+  <script type="text/javascript">
+  //localStorage.clear();
+  localStorage.deptName = "IT";
+    if( localStorage.hitCount ){
+    	
+       localStorage.hitCount = Number(localStorage.hitCount) +1;
+    }else{
+       localStorage.hitCount = 1;
+    }
+    document.write("Total Hits :" + localStorage.hitCount );
+  </script>
+  <p>Refresh the page to increase number of hits.</p>
+  <p>Close the window and open it again and check the result.</p>
+	<a href="ReteriveInfo.html">Info</a>
+</body>
+</html>
