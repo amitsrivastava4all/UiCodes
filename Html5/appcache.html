@@ -1,0 +1,42 @@
+<!DOCTYPE  HTML>
+<html manifest="../../cache/cache.appcache">
+<head>
+<title>AppCache Demo- Powered by .COM</title>
+<script src="../../js/tkhts></script>
+<link  href="../../css/tkhts.css" rel="stylesheet">
+  <script type="text/javascript">
+//Check if a new cache is available on page load.
+// Check if a new cache is available on page load.
+window.addEventListener('load', function(e) {
+
+  window.applicationCache.addEventListener('updateready', function(e) {
+    if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+      // Browser downloaded a new app cache.
+      if (confirm('A new version of this site is available. Load it?')) {
+        window.location.reload();
+      }
+    } else {
+      // Manifest didn't changed. Nothing new to server.
+    }
+  });
+
+});
+</script>
+</head>
+<body>
+<h1>Testing the manifest file</h1>
+<div>
+Here you are looking Techknow heights in a new look.
+</div>
+<br>
+<input type="button" value="Submit" onClick="techknow()"/>
+<br>
+<img src="../../image/tkhts.png"/>
+<section>
+<article>
+  <p>Current network status: <span id="status">checking...</span></p>
+  <ol id="state"></ol>
+</article>
+</section>
+</body>
+</html>
