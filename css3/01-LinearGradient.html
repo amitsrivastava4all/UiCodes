@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TKHTS - CSS3</title>
+<style type="text/css">
+body{
+	background-color: #ddd;
+}
+div{
+	width: 200px;
+	height: 50px;
+	border: 1px solid Black;
+	Color: white;
+	margin: 10px 0px;
+	padding: 5px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#TopToBottom{
+	background: -webkit-linear-gradient(green, blue, yellow);	/* For Safari */
+	background: -o-linear-gradient(red, blue, yellow);		/* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(red, blue, yellow);	/* For Firefox 3.6 to 15 */
+	background: linear-gradient(green, blue, yellow);		/* Standard syntax (must be last) */
+/*	background: linear-gradient(direction, color1, color2,...);		*/
+}
+#LeftToRight{
+	background: -webkit-linear-gradient(left, red , blue);	/* For Safari */
+	background: -o-linear-gradient(right, red, blue);		/* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(right, red, blue);		/* For Firefox 3.6 to 15 */
+	
+	/* For latest browsers */
+	background: linear-gradient(to left, red , blue);		/* Standard syntax */
+}
+#Diagonal{
+	background: -webkit-linear-gradient(left top, red , blue);	/* For Safari */
+	background: -o-linear-gradient(bottom right, red, blue);	/* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(bottom right, red, blue);	/* For Firefox 3.6 to 15 */
+	
+	background: linear-gradient(to bottom left, red , blue);	/* Standard syntax */
+}
+#Angular{
+	/*	0 degree will be horizontal	*/
+	background: linear-gradient(230deg, red, blue, green); 
+}
+#Transparent{
+	background: linear-gradient(to right, rgba(255,0,0,7), rgba(255,0,0,0));
+}
+#Repeat{
+	background: repeating-linear-gradient(150deg, blue, green 20%, red);
+			/* Going from starting with blue, 
+            	         being green after 20% and finishing red */
+}
+</style>
+</head>
+<body>
+<div id="TopToBottom">TopToBottom</div>
+<div id="LeftToRight">LeftToRight</div>
+<div id="Diagonal">Diagonal</div>
+<div id="Angular">Angular</div>
+<div id="Transparent">Transparent</div>
+<div id="Repeat">Repeat</div>
+</body>
+</html>
