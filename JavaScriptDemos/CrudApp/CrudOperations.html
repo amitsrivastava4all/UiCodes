@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>CRUD App</title>
+    <script src="Person.js"></script>
+    <script src="CrudModel.js"></script>
+    <script src="CrudController.js"></script>
+</head>
+<body>
+<fieldset>
+    <table >
+        <tr>
+            <td>Name</td>
+            <td><input type="text"  id="name"/></td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td><input type="text"  id="age"/></td>
+        </tr>
+        <tr>
+            <td><button id="add">Add</button></td>
+            <td><button>Clear</button></td>
+        </tr>
+
+    </table>
+</fieldset>
+<fieldset>
+    <table border="1" id="personTable">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Actions</th>
+        </tr>
+    </table>
+</fieldset>
+</body>
+</html>
