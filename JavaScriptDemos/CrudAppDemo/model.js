@@ -26,6 +26,9 @@ var productOperations={
         }
         //console.log("After Delete "+this.productList);
         return searchIndex;
+    },
+    fetchList:function(){
+        return this.productList;
     }
 
 
