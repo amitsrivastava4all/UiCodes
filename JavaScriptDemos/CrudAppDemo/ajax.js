@@ -27,9 +27,13 @@ function getXMLHttpRequest() {
  * AJAX call starts with this function
  */
 function makeRequest() {
-    var xmlHttpRequest = getXMLHttpRequest();
+    //var xmlHttpRequest = getXMLHttpRequest();
+    var xmlHttpRequest = new window.XMLHttpRequest();
     //alert ("xmlHttpRequest=" + xmlHttpRequest);
-    xmlHttpRequest.onreadystatechange = getReadyStateHandler(xmlHttpRequest);
+
+    xmlHttpRequest.onreadystatechange = getReadyStateHandler(xmlHttpRequest); // Asynch
+    // 0 Means XMLHttpRequest Object is Created but request URL is not OPen
+    console.log("After OnReady State Change "+xmlHttpRequest.readyState);
     xmlHttpRequest.open("GET", "productdata.json", true);
     console.log("After URL ");
     // alert("inside makeRequest()!");
@@ -38,21 +42,22 @@ function makeRequest() {
 }
 
 /*
- * Returns a function that waits for the state change in XMLHttpRequest
- */
-function getReadyStateHandler(xmlHttpRequest) {
-    // an anonynous function returned
-    // it listens to the XMLHttpRequest instance
-    return function() {
-        console.log("Ajax Call Start "+xmlHttpRequest.readyState);
-        if (xmlHttpRequest.readyState == 4) {
-            if (xmlHttpRequest.status == 200) {
-                console.log("Data Coming From Server "+xmlHttpRequest.responseText);
-                localStorage.ajaxdata=xmlHttpRequest.responseText;
-                //document.getElementById("divId").innerHTML = xmlHttpRequest.responseText;
-            } else {
-                alert("Http error " + xmlHttpRequest.status + ":" + xmlHttpRequest.statusText);
+     * Returns a function that waits for the state change in XMLHttpRequest
+     */
+    function getReadyStateHandler(xmlHttpRequest) {
+        console.log("Here....");
+        // an anonynous function returned
+        // it listens to the XMLHttpRequest instance
+        return function() {
+            console.log("Ajax Call Start "+xmlHttpRequest.readyState);
+            if (xmlHttpRequest.readyState == 4) {
+                if (xmlHttpRequest.status == 200) {
+                    console.log("Data Coming From Server "+xmlHttpRequest.responseText);
+                    localStorage.ajaxdata=xmlHttpRequest.responseText;
+                    //document.getElementById("divId").innerHTML = xmlHttpRequest.responseText;
+                } else {
+                    alert("Http error " + xmlHttpRequest.status + ":" + xmlHttpRequest.statusText);
+                }
             }
-        }
-    };
+        };
 }
