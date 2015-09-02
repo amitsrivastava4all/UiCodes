@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>JavaScript Basic Example</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+function validate(){
+	var str = document.getElementById("pwd").value;
+	if(!str){
+		document.getElementById("span").innerHTML = "You can not leave this field blank";
+	}
+	else if( ! (/(\d){5}/).test(str) ) {
+		document.getElementById("span").innerHTML = "Invalid password, Minimum 5 digits required!!!";
+		//document.getElementById("pwd").value = str.toUpperCase();
+	}
+	else{
+		document.getElementById("span").innerHTML = "";
+	}
+}
+</script>
+</head>
+<body>
+<label>Enter Your Password:</label>
+
+<!-- when key is pressed blank value will be passed and function will be called before character entered-->
+<!-- 
+<input type="text" placeholder="Enter your password" id="pwd" name="pwd" onkeypress="validate()"/>
+ --> 
+<!-- same as onkeypress but will work for backspace -->
+<!-- 
+<input type="text" placeholder="Enter your password" id="pwd" name="pwd" onkeydown="validate()"/>
+ -->
+ 
+<input type="text" placeholder="Enter your password" id="pwd" name="pwd" onkeyup="validate()"/>
+
+ <span id="span"></span>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>JavaScript Basic Example</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+function validate(){
+	alert("On Change Call");
+	var str = document.getElementById("pwd").value;
+	if(!str){
+		document.getElementById("span").innerHTML = "You can not leave this field blank";
+	}
+	else if(isNaN(str)){
+		document.getElementById("span").innerHTML = "Password Can only have numrical digits!!!";
+		//document.getElementById("pwd").value = str.toUpperCase();
+	}
+	else if( ! (/(\d){5}/).test(str) ) {
+		document.getElementById("span").innerHTML = "Invalid password, Minimum 5 digits required!!!";
+		//document.getElementById("pwd").value = str.toUpperCase();
+	}
+	else{
+		document.getElementById("span").innerHTML = "";
+	}
+	alert("You changed password...");
+}
+</script>
+</head>
+<body>
+<label>Enter Your Password:</label>
+<input type="text" placeholder="Enter your password" id="pwd" name="pwd" onchange="validate()"/>
+<span id="span"></span>
+</body>
+</html>
