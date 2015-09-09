@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>JavaScript Basic Example</title>
+<style type="text/css">
+	.focuslost{
+		background-color: #ffffff;
+	}
+	.focuson{
+		background-color: yellow;
+	}
+
+</style>
+	<!--<script src="../01-Basics/myjs.js"></script>-->
+<script type="text/javascript">
+function changeCall(){
+	alert("On change called");
+}
+function focusLost(x){
+//alert("BLUR ");
+	//console.log("Lost This "+x.id);
+	document.getElementById(x.id).className="focuslost";
+}
+
+function focusOn(x){
+	//alert("Focus Call");
+	//console.log("Focus This "+x.id);
+	document.getElementById(x.id).className="focuson";
+}
+
+/*function validate(){
+	alert(" Blur Call");
+	var str = document.getElementById("pwd").value;
+	if(!str){
+		document.getElementById("span").innerHTML = "You can not leave this field blank";
+	}
+	else if(isNaN(str)){
+		document.getElementById("span").innerHTML = "Password Can only have numrical digits!!!";
+	}
+	else if( ! (/(\d+){5}/).test(str) ) {
+		document.getElementById("span").innerHTML = "Invalid password, Minimum 5 digits required!!!";
+	}
+	else{
+		document.getElementById("span").innerHTML = "";
+	}
+}*/
+</script>
+</head>
+<body>
+<label>Enter Your Password:</label>
+<!--<input type="text" placeholder="Enter your password" id="pwd" name="pwd"  onblur="validate()"/>-->
+<input type="text"  id="pwd"  onchange="changeCall()" onblur="focusLost(this)" onfocus="focusOn(this)" />
+<input type="text"   id="uid"  onchange="changeCall()" onblur="focusLost(this)"  onfocus="focusOn(this)" />
+<span id="span"></span>
+</body>
+</html>

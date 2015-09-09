@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Amit - JavaScript</title>
+<style type="text/css">
+	p{
+		width: 170px;
+		font-family: Century;
+		font-size: 1.5em;
+		color: Gray;
+		border: thick CornFlowerBlue solid;
+		margin: 0px 0px;
+		border-radius: 15px;
+	}
+	img{
+		width: 150px;
+		height: 175px;
+		margin: 10px;
+	}
+	div{
+		width: 170px;
+		margin: 0px 0px;
+	}
+	.container{
+		float: left;
+		margin: 10px;
+	}
+	#face{
+		border: thick CornFlowerBlue solid;
+		border-radius: 15px;
+	} 
+
+</style>
+</head>
+<body>
+<!--  your face	 -->
+<div class="container">
+	<p align="center">Mood is <span id="mood">Good</span></p>
+	<div id="face" onmouseover="changeFace1(this)" onmouseout= "changeFace2(this)">
+		<img src = "../image/smile.jpg"/>
+	</div>
+</div>
+
+<script type="text/javascript">
+function changeFace1(object){
+	object.innerHTML = '<img src = "../image/sad.jpg"/>';
+	document.getElementById("mood").innerHTML="Bad";
+}
+function changeFace2(object){
+	object.innerHTML = '<img src = "../image/smile.jpg"/>';
+	document.getElementById("mood").innerHTML="Good";
+}
+
+
+</script>
+</body>
+</html>

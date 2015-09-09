@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="myid"></p>
+
+<button onclick="getHost()">Host</button>
+<button onclick="openURL()">URL</button>
+<script>
+function openURL()
+{
+location.assign("http://www.Amit.com");
+}
+function getHost()
+{
+var x = "Host: " + location.host;
+document.getElementById("myid").innerHTML=x;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #spinner
+        {
+            display: none;
+            width:200px;
+            height: 200px;
+            position: fixed;
+            top: 7%;
+            left: 10%;
+            text-align:center;
+            margin-left: 5px;
+            margin-top: 5px;
+            z-index:2;
+            overflow: auto;
+        }
+    </style>
+<script src="../js/jquery/jquery-1.11.0.min.js"></script>
+ <script>
+     $(document).ready(function(){
+        $("button").click(function(){
+            $("#spinner").show();
+            var promiseObject = $.ajax({
+                type:"GET",
+                url:"https://freegeoip.net/json/google.com",
+                dataType:"json"
+
+            });
+            promiseObject.success(function(data){
+                var object = data;
+                $("div").html(object.ip+" "+object.country_name);
+                $("#spinner").hide();
+            });
+            promiseObject.error(function(textStatus,errorCode){
+
+                $("div").html(textStatus);
+                $("#spinner").hide();
+            });
+
+        });
+     });
+ </script>
+</head>
+
+<body>
+<div id="spinner">
+    <img id="loading" src="../images/ajax-loader.gif" alt="Loading..."/>
+</div>
+    <button>Do Ajax</button>
+<div>
+
+</div>
+</body>
+</html>
