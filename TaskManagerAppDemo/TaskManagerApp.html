@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+      <!--  <html>-->
+<html manifest="cache/cache.appcache">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TaskManager App</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="ajax.js"></script>
+    <script src="Model.js"></script>
+    <script src="controller.js"></script>
+    <script src="newsworker.js"></script>
+    <script type="text/javascript">
+        //Check if a new cache is available on page load.
+        // Check if a new cache is available on page load.
+        window.addEventListener('load', function(e) {
+
+            window.applicationCache.addEventListener('updateready', function(e) {
+                if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+                    // Browser downloaded a new app cache.
+                    if (confirm('A new version of this site is available. Load it?')) {
+                        window.location.reload();
+                    }
+                } else {
+                    // Manifest didn't changed. Nothing new to server.
+                }
+            });
+
+        });
+    </script>
+    <style>
+    .completeTask{
+    text-decoration: line-through;
+    color: #ff0000;
+    font-style: italic;
+    }
+    ul>li{
+        cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+        <h2>News :</h2><h3 id="newheading"></h3>
+        </div>
+    </div>
+    <div class="row">
+    <fieldset>
+        <legend>Task Manager</legend>
+        <label for="taskName"></label><input type="text" placeholder="Type TaskName Here"  id="taskName"/>
+        <label for="taskDesc"></label><input type="text" placeholder="Type Task Desc Here" id="taskDesc"/>
+        <button id="add" class="btn-primary"><span class="glyphicon glyphicon-plus-sign">Add a Task</button>
+        <button id="remove">Remove All Completed Task</button>
+        <button id="save">Save All Task</button>
+</fieldset>
+    </div>
+<ul>
+
+</ul>
+<div style="display: none">
+    <audio id="audio" loop="loop">
+        <source src="audio/msg.mp3" type="audio/mp3">
+    </audio>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+CACHE MANIFEST  
+
+../Model.js
+../news.js
+../css/bootstrap.min.css
+NETWORK:
+*
+
+# static.html will be served if main.py is inaccessible
+# offline.jpg will be served in place of all images in images/large/
+# offline.html will be served in place of all other .html files
+FALLBACK:
+#/main.py /static.html
+#images/large/ images/offline.jpg
+
+#A manifest can have three distinct sections: CACHE, NETWORK, and FALLBACK.
+
+#CACHE:
+#This is the default section for entries. Files listed under this header (or immediately after the CACHE MANIFEST) will be explicitly cached after they're downloaded for the first time.
+#NETWORK:
+#Files listed in this section may come from the network if they aren't in the cache, otherwise the network isn't used, even if the user is online. You can white-list specific URLs here, or simply "*", which allows all URLs. Most sites need "*".
+#FALLBACK:
+#An optional section specifying fallback pages if a resource is inaccessible. The first URI is the resource, the second is the fallback used if the network request fails or errors. Both URIs must from the same origin as the manifest file. You can capture specific URLs but also URL prefixes. "images/large/" will capture failures from URLs such as "images/large/whatever/img.jpg".
+#Note: These sections can be listed in any order and each section can appear more than one in a single manifest.
+
+#Note:
+#If the cache manifest has been updated, the browser downloads a new version of the manifest and the resources listed in the manifest. This is done in the background and does not affect performance significantly.
